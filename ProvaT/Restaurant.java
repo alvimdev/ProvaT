@@ -1,30 +1,30 @@
 package ProvaT;
 
-/* TRABALHO DE AEDS */
-// Restaurante: bwyty (Galês)
-// Made by Alvim (2021951426) and ...
-
 public class Restaurant{
-    public String Name;
-    public String Address;
+    private String Name;
+    private String Address;
     public Tables[] tables;
 
     public Restaurant(String name, String addr){
-        this.tables[0] = new Tables("12/09/2022",1);
+        this.Address = addr;
+        this.Name = name;
     }
 
-    public void addTable(String d, int nm){
-        Tables table = new Tables(d, nm);
+    public void addTable(int nm){
+        Tables mesa = new Tables(nm);
         if (tables == null) {
             this.tables = new Tables[1];
-            this.tables[0] = table;
+            this.tables[0] = mesa;
         }
         else {
             int l = 0;
-            [tables.length + 1];
-            for (Tables tables : tables) {
-                
+            Tables[] table = new Tables[tables.length + 1];
+            for (Tables table2 : tables) {
+                table[l] = table2;
+                l++;
             }
+            table[l] = mesa;
+            this.tables = table;
         }
         
     }
