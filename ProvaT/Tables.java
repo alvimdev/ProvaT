@@ -2,10 +2,10 @@ package ProvaT;
 import java.util.Scanner;
 
 public class Tables {
-    private int nTable;
-    private Date[] date = new Date[0];
-    Drink comandaB;
-    Food comandaC;
+    public int nTable;
+    public Date[] date = new Date[0];
+    public Drink comandaB;
+    public Food comandaC;
 
     public Tables(int nm){
         this.nTable = nm;
@@ -68,6 +68,7 @@ public class Tables {
     }
 
     public double getServiceRate(){
-        return ((comandaB.getServiceRate()) + (comandaC.getServiceRate()));
+        double rate = comandaB.bill + comandaC.bill;
+        return rate/(double)10;
     }
 }
