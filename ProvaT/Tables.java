@@ -29,32 +29,21 @@ public class Tables {
         this.date = dat;
     }
 
-    public void verifyReserve(int dia, int mes, int ano){
-        for (int j = 0; j < date.length; j++) {
-            if ((this.date[j].dia == dia) && (this.date[j].mes == mes) && (this.date[j].ano == ano)){
-                if (this.date[j].reserved){
-                    System.out.println("Mesa reservada.");
-                } else {
-                    System.out.println("Mesa livre.\nReservar? [y/n]");
+    public Date getDate(int pos) {
+        return date[pos];
+    }
 
-                    Scanner in = new Scanner(System.in);
-                    String ch;
-                    ch = in.next();
-
-                    if ((ch == "y") || (ch == "Y")) {
-                        System.out.println("Numero de pessoas: ");
-                        int nP = in.nextInt();
-                        this.date[j].reservation(nP);
-                    } else if((ch == "n") || (ch == "N")){
-                        System.out.println("Os de vdd eu sei quem são..");
-                    } else {
-                        System.out.println("Opção inválida.");
-                    }
-                    in.close();
-                }
+    public void verifyReserve(Date data, int j){
+        if (this.date[j].equals(data)){
+            this.date[j].printData();
+            System.out.print(" -- ");
+            if (this.date[j].reserved){
+                System.out.println("Mesa reservada.");
             } else {
-                System.out.println("Data não disponível para reserva.");
+                System.out.println("Mesa livre.");
             }
+        } else {
+            System.out.println("Data não disponível.");
         }
     }
 

@@ -14,7 +14,11 @@ public class Date{
         this.reserved = false;
         this.dia = RND.nextInt(31 - 1) + 1;
         this.mes = RND.nextInt(12 - 1) + 1;
-        this.ano = RND.nextInt(2022 - 1) + 1;
+        this.ano = 2022;
+    }
+
+    public void printData(){
+        System.out.print(this.dia + "/" + this.mes + "/" + this.ano);
     }
 
     public void addPeople(String name, String mail){
