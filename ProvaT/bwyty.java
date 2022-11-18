@@ -51,7 +51,7 @@ public class bwyty {
                                 System.out.println("Ano: \n2022");
                                 dat.ano = 2022;
                                 for (int j = 0; j < local.tables[i].date.length; j++) {
-                                    if (local.tables[i].date[j].equals(dat)) {
+                                    if ((local.tables[i].date[j].dia == dat.dia) && (local.tables[i].date[j].mes == dat.mes)) {
                                         System.out.println("Certo, certo. Quantas pessoas são?");
                                         int Np = in.nextInt();
                                         local.tables[i].date[j].reservation(Np);

@@ -31,22 +31,22 @@ public class Date{
         }
         client[l] = cliente;
         this.clients = client;
-        this.nClient += l;
+        this.nClient++;
     }
 
     public void reservation(int nP){
-        Scanner in = new Scanner(System.in);
+        Scanner rd = new Scanner(System.in);
         String nome, mail;
 
         for (int c = 0; c < nP; c++) {
             System.out.println("Nome: ");
-            nome = in.nextLine();
+            nome = rd.nextLine();
             System.out.println("Mail: ");
-            mail = in.nextLine();
-            addPeople(nome, mail);
+            mail = rd.nextLine();
+            this.addPeople(nome, mail);
         }
 
-        in.close();
+        rd.close();
         this.reserved = !this.reserved;
     }
 }
