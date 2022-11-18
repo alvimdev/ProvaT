@@ -17,7 +17,7 @@ public class bwyty {
             }
         }
 
-        int choice;
+        int choice = 0;
         System.out.println("-------------------------------------------");
         System.out.println("Bem-Vindo ao Restaurante " + local.getName() + "\nEndereço: " + local.getAddress());
         System.out.println("-------------------------------------------");
@@ -54,7 +54,8 @@ public class bwyty {
                                     if ((local.tables[i].date[j].dia == dat.dia) && (local.tables[i].date[j].mes == dat.mes)) {
                                         System.out.println("Certo, certo. Quantas pessoas são?");
                                         int Np = in.nextInt();
-                                        local.tables[i].date[j].reservation(Np);
+                                        in.nextLine();
+                                        local.tables[i].date[j].reservation(Np, in);
                                         break;  
                                     }
                                 }

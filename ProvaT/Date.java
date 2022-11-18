@@ -34,8 +34,7 @@ public class Date{
         this.nClient++;
     }
 
-    public void reservation(int nP){
-        Scanner rd = new Scanner(System.in);
+    public void reservation(int nP, Scanner rd){
         String nome, mail;
 
         for (int c = 0; c < nP; c++) {
@@ -45,8 +44,6 @@ public class Date{
             mail = rd.nextLine();
             this.addPeople(nome, mail);
         }
-
-        rd.close();
         this.reserved = !this.reserved;
     }
 }
