@@ -41,8 +41,6 @@ public class Tables {
             } else {
                 System.out.println("Mesa livre.");
             }
-        } else {
-            System.out.println("Data não disponível.");
         }
     }
 

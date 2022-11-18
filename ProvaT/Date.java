@@ -38,12 +38,12 @@ public class Date{
         String nome, mail;
 
         for (int c = 0; c < nP; c++) {
-            System.out.println("Nome: ");
+            System.out.print("Nome: ");
             nome = rd.nextLine();
-            System.out.println("Mail: ");
+            System.out.print("Mail: ");
             mail = rd.nextLine();
             this.addPeople(nome, mail);
         }
-        this.reserved = !this.reserved;
+        this.reserved = true;
     }
 }
