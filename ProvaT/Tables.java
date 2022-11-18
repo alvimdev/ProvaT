@@ -1,5 +1,4 @@
 package ProvaT;
-import java.util.Scanner;
 
 public class Tables {
     public int nTable;
