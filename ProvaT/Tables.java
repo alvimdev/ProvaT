@@ -3,10 +3,12 @@ package ProvaT;
 public class Tables {
     public int nTable;
     public Date[] date = new Date[0];
+    float dividedBill;
     public Drink comandaB;
     public Food comandaC;
 
     public Tables(int nm){
+        this.dividedBill = 00;
         this.nTable = nm;
         this.comandaB = new Drink();
         this.comandaC = new Food();
@@ -49,12 +51,12 @@ public class Tables {
         comandaC.showConsume();
     }
 
-    public double repartBill(int numP){
-        return ((comandaB.repartBill(numP)) + (comandaC.repartBill(numP)));
+    public void repartBill(int numP){
+        dividedBill = ((comandaB.repartBill(numP)) + (comandaC.repartBill(numP)));
     }
 
-    public double getServiceRate(){
-        double rate = comandaB.bill + comandaC.bill;
-        return rate/(double)10;
+    public float getServiceRate(){
+        float rate = comandaB.bill + comandaC.bill;
+        return rate/(float)10;
     }
 }

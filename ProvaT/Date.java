@@ -6,11 +6,9 @@ public class Date{
     public int dia, mes, ano;
     public Boolean reserved;
     private Client[] clients = new Client[0];
-    private int nClient;
     private Random RND = new Random();
 
     public Date(){
-        this.nClient = 0;
         this.reserved = false;
         this.dia = RND.nextInt(31 - 1) + 1;
         this.mes = RND.nextInt(12 - 1) + 1;
@@ -31,7 +29,6 @@ public class Date{
         }
         client[l] = cliente;
         this.clients = client;
-        this.nClient++;
     }
 
     public void reservation(int nP, Scanner rd){
