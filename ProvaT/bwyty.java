@@ -15,7 +15,7 @@ public class bwyty {
         Restaurant local = new Restaurant("iPhome", "Rua Alberto Cintra, n 6429, BH");
         Console t = System.console();
         Scanner in = new Scanner(System.in);
-        int Nm, choice, cp, np, res; //variáveis de escolha
+        int Nm, choice, np, res; //variáveis de escolha
 
         for (int m = 0; m < 15; m++) {
             local.addTable(m);
@@ -94,29 +94,15 @@ public class bwyty {
                     Nm = in.nextInt();
                     for (int i = 0; i < local.tables.length; i++) {
                         if (local.tables[i].getnTable() == Nm) {
-                            System.out.println("O pedido é uma comida ou bebida? 1 para COMIDA e 2 para BEBIDA");
-                            cp = in.nextInt();
-                            in.nextLine();
-                            
                             String pedido;
                             float valor;
-                            if (cp == 1) {
-                                System.out.print("Pedido: ");
-                                pedido = in.nextLine();
-                                System.out.print("Preço: ");
-                                valor = Float.parseFloat(in.nextLine());
-                                local.tables[i].comandaC.Ordering(pedido, valor);
-                                System.out.println("Pedido efetuado.");
-                            } else if (cp == 2) {
-                                System.out.print("Pedido: ");
-                                pedido = in.nextLine();
-                                System.out.print("Preço: ");
-                                valor = Float.parseFloat(in.nextLine());
-                                local.tables[i].comandaB.Ordering(pedido, valor);
-                                System.out.println("Pedido efetuado.");
-                            } else {
-                                System.out.println("Opção inválida");
-                            }
+                            in.nextLine();
+                            System.out.print("Pedido: ");
+                            pedido = in.nextLine();
+                            System.out.print("Preço: ");
+                            valor = Float.parseFloat(in.nextLine());
+                            local.tables[i].comanda.Ordering(pedido, valor);
+                            System.out.println("Pedido efetuado.");
                             System.out.println("Enter para continuar..");
                             t.readLine();
                             System.out.print("\033\143");
@@ -173,8 +159,7 @@ public class bwyty {
                             System.out.println("Taxa de serviço (10%): R$" + local.tables[i].getServiceRate());
                             if (local.tables[i].getDividedBill() > 0)
                                 System.out.println("Valor dividido: R$" + local.tables[i].getDividedBill() + " cada");
-                                float conta = local.tables[i].comandaB.getBill() + local.tables[i].comandaC.getBill();
-                            System.out.println("Valor total: R$" + (local.tables[i].getServiceRate() + conta));
+                            System.out.println("Valor total: R$" + (local.tables[i].getServiceRate() + local.tables[i].comanda.getBill()));
                             System.out.println("-------------------------------------------");
                             System.out.println("Pagamento \"efetuado\".\nEnter para continuar..");
                         }
@@ -186,8 +171,7 @@ public class bwyty {
                     System.out.println("Obrigadx por vir ao Restaurante " + local.getName());
                     System.out.println("Volte sempre! :3");
                     for (int c = 0; c < local.tables.length; c++) {
-                        local.tables[c].comandaB = new Drink();
-                        local.tables[c].comandaC = new Food();
+                        local.tables[c].comanda = new Command();
                         for (int cc = 0; cc < args.length; cc++) {
                             local.tables[c].date[cc].setReserve(false);
                         }

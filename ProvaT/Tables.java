@@ -4,14 +4,12 @@ public class Tables {
     private int nTable;
     public Date[] date = new Date[0];
     private float dividedBill;
-    public Drink comandaB;
-    public Food comandaC;
+    public Command comanda;
 
     public Tables(int nm){
         this.dividedBill = 00;
         this.nTable = nm;
-        this.comandaB = new Drink();
-        this.comandaC = new Food();
+        this.comanda = new Command();
     }
 
     public int getnTable() {
@@ -47,8 +45,7 @@ public class Tables {
     }
 
     public void showConsume(){
-        comandaB.showConsume();
-        comandaC.showConsume();
+        comanda.showConsume();
     }
 
     public float getDividedBill() {
@@ -56,11 +53,10 @@ public class Tables {
     }
 
     public void repartBill(int numP){
-        dividedBill = ((comandaB.repartBill(numP)) + (comandaC.repartBill(numP)));
+        dividedBill = comanda.repartBill(numP);
     }
 
     public float getServiceRate(){
-        float rate = comandaB.getBill() + comandaC.getBill();
-        return rate/(float)10;
+        return ((float)10/100 * comanda.getBill());
     }
 }
