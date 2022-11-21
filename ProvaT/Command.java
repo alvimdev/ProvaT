@@ -3,7 +3,7 @@ package ProvaT;
 public class Command {
     public String[] consume = new String[0];
     public float[] value = new float[0];
-    public float bill = 0;
+    private float bill = 0;
 
     public float getBill() {
         return bill;

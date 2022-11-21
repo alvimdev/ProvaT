@@ -31,7 +31,7 @@ public class Restaurant{
 
     public void showTables(){
         for (int l = 0; l < tables.length; l++) {
-            System.out.println("Mesa: " + (tables[l].nTable));
+            System.out.println("Mesa: " + (tables[l].getnTable()));
             System.out.println("Reserva: ");
             for (int ll = 0; ll < tables[l].date.length; ll++) {
                 tables[l].verifyReserve(tables[l].date[ll], ll);

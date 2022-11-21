@@ -50,7 +50,7 @@ public class bwyty {
                         System.out.println("Perfeito! Qual mesa deseja reservar?");
                         Nm = in.nextInt();
                         for (int i = 0; i < local.tables.length; i++) {
-                            if (Nm == local.tables[i].nTable){
+                            if (Nm == local.tables[i].getnTable()){
                                 Date dat = new Date();
                                 System.out.println("Ótimo, mesa escolhida! Para qual data desja reservar esta mesa?");
                                 System.out.print("Dia: ");
@@ -61,7 +61,7 @@ public class bwyty {
                                 dat.ano = 2022;
                                 for (int j = 0; j < local.tables[i].date.length; j++) {
                                     if ((local.tables[i].date[j].dia == dat.dia) && (local.tables[i].date[j].mes == dat.mes)) {
-                                        if(local.tables[i].date[j].reserved){
+                                        if(local.tables[i].date[j].getReserve()){
                                             System.out.println("Data já reservada\nEnter para continuar..");
                                             t.readLine();
                                         }
@@ -93,7 +93,7 @@ public class bwyty {
                     System.out.print("Em qual mesa deseja pedir? Mesa ");
                     Nm = in.nextInt();
                     for (int i = 0; i < local.tables.length; i++) {
-                        if (local.tables[i].nTable == Nm) {
+                        if (local.tables[i].getnTable() == Nm) {
                             System.out.println("O pedido é uma comida ou bebida? 1 para COMIDA e 2 para BEBIDA");
                             cp = in.nextInt();
                             in.nextLine();
@@ -128,11 +128,11 @@ public class bwyty {
                     System.out.print("Qual mesa quer exibir a comanda? Mesa ");
                     Nm = in.nextInt();
                     for (int i = 0; i < local.tables.length; i++) {
-                        if (local.tables[i].nTable == Nm) {
+                        if (local.tables[i].getnTable() == Nm) {
                             System.out.println("-------------------------------------------");
                             System.out.println("\t\t   COMANDA                             ");
                             System.out.println("-------------------------------------------");
-                            System.out.println("Mesa: " + local.tables[i].nTable);
+                            System.out.println("Mesa: " + local.tables[i].getnTable());
                             System.out.println("-------------------------------------------");
                             local.tables[i].showConsume();
                             break;
@@ -146,11 +146,11 @@ public class bwyty {
                     System.out.print("Em qual mesa quer dividir a conta? ");
                     Nm = in.nextInt();
                     for (int i = 0; i < local.tables.length; i++) {
-                        if (local.tables[i].nTable == Nm) {
+                        if (local.tables[i].getnTable() == Nm) {
                             System.out.print("Para quantas pessoas a conta será repartida? ");
                             np = in.nextInt();
                             local.tables[i].repartBill(np);
-                            System.out.println("Conta dividida.\nCada membro pagará R$" + local.tables[i].dividedBill);
+                            System.out.println("Conta dividida.\nCada membro pagará R$" + local.tables[i].getDividedBill());
                         }
                     }
                     System.out.println("Enter para continuar..");
@@ -161,19 +161,19 @@ public class bwyty {
                     System.out.println("Digite a mesa que deseja efetuar o pagamento: ");
                     Nm = in.nextInt();
                     for (int i = 0; i < local.tables.length; i++) {
-                        if (local.tables[i].nTable == Nm) {
+                        if (local.tables[i].getnTable() == Nm) {
                             System.out.print("\033\143");
                             System.out.println("-------------------------------------------");
                             System.out.println("\t\t    CONTA                              ");
                             System.out.println("-------------------------------------------");
-                            System.out.println("Mesa: " + local.tables[i].nTable);
+                            System.out.println("Mesa: " + local.tables[i].getnTable());
                             System.out.println("-------------------------------------------");
                             local.tables[i].showConsume();
                             System.out.println("-------------------------------------------");
                             System.out.println("Taxa de serviço (10%): R$" + local.tables[i].getServiceRate());
-                            if (local.tables[i].dividedBill > 0)
-                                System.out.println("Valor dividido: R$" + local.tables[i].dividedBill + " cada");
-                                float conta = local.tables[i].comandaB.bill + local.tables[i].comandaC.bill;
+                            if (local.tables[i].getDividedBill() > 0)
+                                System.out.println("Valor dividido: R$" + local.tables[i].getDividedBill() + " cada");
+                                float conta = local.tables[i].comandaB.getBill() + local.tables[i].comandaC.getBill();
                             System.out.println("Valor total: R$" + (local.tables[i].getServiceRate() + conta));
                             System.out.println("-------------------------------------------");
                             System.out.println("Pagamento \"efetuado\".\nEnter para continuar..");
@@ -189,7 +189,7 @@ public class bwyty {
                         local.tables[c].comandaB = new Drink();
                         local.tables[c].comandaC = new Food();
                         for (int cc = 0; cc < args.length; cc++) {
-                            local.tables[c].date[cc].reserved = false;
+                            local.tables[c].date[cc].setReserve(false);
                         }
                     }
                     return;

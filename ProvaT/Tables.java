@@ -1,9 +1,9 @@
 package ProvaT;
 
 public class Tables {
-    public int nTable;
+    private int nTable;
     public Date[] date = new Date[0];
-    float dividedBill;
+    private float dividedBill;
     public Drink comandaB;
     public Food comandaC;
 
@@ -38,7 +38,7 @@ public class Tables {
         if (this.date[j].equals(data)){
             this.date[j].printData();
             System.out.print(" -- ");
-            if (this.date[j].reserved){
+            if (this.date[j].getReserve()){
                 System.out.println("Mesa reservada.");
             } else {
                 System.out.println("Mesa livre.");
@@ -51,12 +51,16 @@ public class Tables {
         comandaC.showConsume();
     }
 
+    public float getDividedBill() {
+        return dividedBill;
+    }
+
     public void repartBill(int numP){
         dividedBill = ((comandaB.repartBill(numP)) + (comandaC.repartBill(numP)));
     }
 
     public float getServiceRate(){
-        float rate = comandaB.bill + comandaC.bill;
+        float rate = comandaB.getBill() + comandaC.getBill();
         return rate/(float)10;
     }
 }

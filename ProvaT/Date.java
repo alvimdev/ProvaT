@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Date{
     public int dia, mes, ano;
-    public Boolean reserved;
+    private Boolean reserved;
     private Client[] clients = new Client[0];
     private Random RND = new Random();
 
@@ -29,6 +29,14 @@ public class Date{
         }
         client[l] = cliente;
         this.clients = client;
+    }
+
+    public Boolean getReserve() {
+        return reserved;
+    }
+
+    public void setReserve(Boolean reserved) {
+        this.reserved = reserved;
     }
 
     public void reservation(int nP, Scanner rd){
