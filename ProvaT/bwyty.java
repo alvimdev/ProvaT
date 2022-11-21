@@ -7,7 +7,7 @@ import java.io.Console;
 // Made by Alvim (2021951426) and Raphael (2020954103)
 
 /* Comentários adicionais */
-// O comando: 't.readLine();' serve para coletar o \n do input fazendo com que o programa prossiga apenas quando o usuário 
+// O comando: 't.readLine();' serve para coletar o \n do input fazendo com que o programa prossiga apenas quando o usuário teclar o Enter
 // O comando: 'System.out.print("\033\143");' serve para limpar o terminal e melhorar a apresentação ao usuário
 
 public class bwyty {
