@@ -16,7 +16,7 @@ public class Tables {
         return nTable;
     }
 
-    public void scDate(){
+    public void addDate(){
         Date data = new Date();
         Date[] dat = new Date[date.length + 1];
         int l = 0;
